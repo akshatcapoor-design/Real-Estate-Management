@@ -17,6 +17,7 @@ counts, or square footage.
 • Quickly filtering through large volumes of listings based on specific locations or property titles.
 
 
+
 # Functional Requirements
 The application consists of five operational business modules managed through a centralized 6-option CLI
 menu loop.
@@ -43,6 +44,7 @@ updated array if the record was found.
 
 Search: normalizes the keyword to lowercase; matches the query substring against title.lower() and
 location.lower().
+
 
 
 # Non-Functional Requirements
