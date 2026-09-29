@@ -43,3 +43,14 @@ updated array if the record was found.
 
 Search: normalizes the keyword to lowercase; matches the query substring against title.lower() and
 location.lower().
+
+
+# Non-Functional Requirements
+• Data Persistence: Records remain persistent across sessions by serializing data into an external
+properties.json document.
+• Fault Tolerance & Error Handling: Prevents script termination on illegal user entries by wrapping input
+type-casting (int(), float()) in structured try-except ValueError blocks.
+• Maintainability & Modularity: Adheres to separation of concerns by isolating presentation (main.py),
+storage management (connect.py), and individual CRUD routines across separate scripts.
+• Usability: CLI prompts guide the user explicitly, allowing attributes to be preserved during updates by
+pressing Enter.
