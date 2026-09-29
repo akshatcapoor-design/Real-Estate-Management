@@ -21,17 +21,22 @@ counts, or square footage.
 # Functional Requirements
 The application consists of five operational business modules managed through a centralized 6-option CLI
 menu loop.
+
+
 Module 1: Data Persistence & Connection (connect.py)
 Checks file existence via os.path.exists(), serializes Python objects to JSON with indentation
 formatting, and deserializes JSON strings safely handling IOError and json.JSONDecodeError
+
 
 Module 2: Property Registration (add.py)
 Validates data types via try-except ValueError, verifies ID uniqueness against properties.json using
 any(), packages fields into a dictionary, and appends it to storage.
 
+
 Module 3: Catalog Viewing (view.py)
 Fetches all records via connect_db(); formats price as currency (${price:,.2f}) and formats
 dimensions.
+
 
 Module 4: Selective Record Updating (update.py)
 Searches property by id1; prompts for each attribute allowing empty inputs ("") to keep existing
