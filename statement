@@ -1,0 +1,45 @@
+# Purpose of the Project
+The primary purpose of this project is to build an interactive, modular command-line interface (CLI)
+application in Python that executes full CRUD (Create, Read, Update, Delete) operations and keyword
+searching over property listings. It emphasizes persistent file-based data handling via JSON serialization,
+defensive programming with structured exception handling (try-except), and modular software design.
+
+
+
+# Problem Statement
+Real estate brokers and independent agents frequently face operational bottlenecks when relying on
+manual or semi-automated spreadsheets:
+• Enforcing unique identification across properties to prevent duplicate inventory records.
+• Handling runtime crashes when users enter alphabetic text into numeric fields such as price, bedroom
+counts, or square footage.
+• Modifying specific property attributes without having to re-enter all other existing values from scratch.
+• Retaining state across application restarts without relying on complex, heavy external database servers.
+• Quickly filtering through large volumes of listings based on specific locations or property titles.
+
+
+# Functional Requirements
+The application consists of five operational business modules managed through a centralized 6-option CLI
+menu loop.
+Module 1: Data Persistence & Connection (connect.py)
+Checks file existence via os.path.exists(), serializes Python objects to JSON with indentation
+formatting, and deserializes JSON strings safely handling IOError and json.JSONDecodeError
+
+Module 2: Property Registration (add.py)
+Validates data types via try-except ValueError, verifies ID uniqueness against properties.json using
+any(), packages fields into a dictionary, and appends it to storage.
+
+Module 3: Catalog Viewing (view.py)
+Fetches all records via connect_db(); formats price as currency (${price:,.2f}) and formats
+dimensions.
+
+Module 4: Selective Record Updating (update.py)
+Searches property by id1; prompts for each attribute allowing empty inputs ("") to keep existing
+values; converts numeric inputs safely with ValueError guards; writes changes back to disk.
+
+
+Module 5: Deletion & Keyword Search (delete.py, search.py)
+Delete: uses list-comprehension filtering [p for p in properties if p["id1"] != prop_id]; saves the
+updated array if the record was found.
+
+Search: normalizes the keyword to lowercase; matches the query substring against title.lower() and
+location.lower().
